@@ -34,7 +34,7 @@ exports.listarTodas = (req, response) => {
 
 exports.listarPorId = (req, response) => {
   const id = req.params.id
-  const query = 'select * from pessoas where id_pessoa = $1'
+  const query = 'select * from doacoes where id_doacao = $1'
   conexao.query(query,[id], (err, res) => {
     if (err){
       console.log(err)
@@ -51,18 +51,18 @@ exports.listarPorId = (req, response) => {
 }
 
 exports.inserir = (req, response) => {
-  const pessoa = {}
+  const doacao = {}
   console.log(req.body)
-  pessoa.rg_pessoa = req.body.rg_pessoa
-  pessoa.nome_pessoa = req.body.nome_pessoa
-  pessoa.idade_pessoa = req.body.idade_pessoa
-  pessoa.tamanho_camiseta = req.body.tamanho_camiseta
-  pessoa.tamanho_calca = req.body.tamanho_calca
-  pessoa.tamanho_calcado = req.body.tamanho_calcado
+  doacao.id_produto = req.body.id_produto
+  doacao.id_pessoa = req.body.id_pessoa
+  doacao.nome_produto = req.body.nome_produto
+  doacao.descricao_doacao = req.body.descricao_doacao
+  doacao.qtd = req.body.qtd
  
-  const query = 'insert into public.pessoas (rg_pessoa, nome_pessoa, idade_pessoa, tamanho_camiseta, tamanho_calca, tamanho_calcado) values ($1, $2, $3, $4, $5, $6)'
+  const query = 'insert into public.doacoes (id_produto, id_pessoa, nome_produto, descricao_doacao, qtd) values ($1, $2, $3, $4, $5)'
+  // const queryDel = 'delete from public.estoque where id_produto = $1;'
  
-  conexao.query(query, [pessoa.rg_pessoa, pessoa.nome_pessoa, pessoa.idade_pessoa, pessoa.tamanho_camiseta, pessoa.tamanho_calca, pessoa.tamanho_calcado], (err, result) => {
+  conexao.query(query, [doacao.id_produto,doacao.id_pessoa,doacao.nome_produto,doacao.descricao_doacao,doacao.qtd], (err, result) => {
     if (err){
       console.log(err)
       response.status(500)
@@ -73,30 +73,21 @@ exports.inserir = (req, response) => {
       // console.log("message": result.insertId)
     }
   })
+
+  // conexao.query(queryDel, [doacao.id_produto], (err, result) => {
+  //   if (err){
+  //     console.log(err)
+  //     response.status(500)
+  //     response.json({"message": "Internal Server Error"})
+  //   } else if (result.affectedRows > 0){
+  //     response.status(200)
+  //     response.json({"message": "produto deletado"})
+  //   } else {
+  //     // response.status(404)
+  //     // response.json({"message": "Tarefa não encontrada"})
+  //     response.status(200)
+  //     response.json({"message": "produto deletado"})
+  //   }
+  // })
 }
-
-// exports.alterar = (req, response) => {
-//   const tarefa = {}
-//   tarefa.id = req.params.id
-//   tarefa.descricao = req.body.descricao
-//   tarefa.data = req.body.data
-//   tarefa.realizado = req.body.realizado
-//   tarefa.categoria_id = req.body.categoria_id
-
-//   const query = 'update public.tarefas set descricao = $1, data = $2, realizado = $3, categoria_id = $4 where id = $5'
-//   conexao.query(query, [tarefa.descricao, tarefa.data, tarefa.realizado, tarefa.categoria_id, tarefa.id], (err, result) => {
-//     if (err){
-//       console.log(err)
-//       response.status(500)
-//       response.json({"message": "Internal Server Error"})
-//     } else if (result.affectedRows > 0){
-//       response.json({"message": "Tarefa alterada"})
-//     } else {
-//       // response.status(404)
-//       // response.json({"message": "Tarefa não encontrada"})
-//       response.status(202)
-//       response.json({"message": "Tarefa alterada"})
-//     }
-//   })
-// }
 
