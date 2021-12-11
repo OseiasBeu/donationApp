@@ -1,4 +1,4 @@
-# API Instituto Neuza Itioka
+# API Tenda da Glória!
  
 ## To Do
 - [] ...

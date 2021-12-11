@@ -17,11 +17,11 @@ insert into public.estoque (nome_produto, descricao_produto, tamanho_produto, ti
   ('calça','calça jeans em perfeito estado','40','Roupas','n/a');
 -------
 
- ----- Tabela doações:
- 
- 
- 
+----- Tabela estoque:
 SELECT id_produto, nome_produto, descricao_produto, tamanho_produto, tipo_produto, nome_doador, dt_insert FROM public.estoque;
+
+--- Deletar produto do estoque: 
+DELETE FROM public.estoque WHERE id_produto=3;
 -------
 
 select * from public.estoque;

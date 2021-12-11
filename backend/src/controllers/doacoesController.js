@@ -14,7 +14,7 @@ conexao.connect();
 
 
 exports.listarTodas = (req, response) => {
-  const query = 'select * from pessoas;'
+  const query = 'select * from doacoes;'
   conexao.query(query, (err, res) => {
     // console.log(err, res.rows)
     if (err){

@@ -1,7 +1,7 @@
 {
-  "name": "api-tarefas-default",
+  "name": "api-doacoes-default",
   "version": "1.0.0",
-  "description": "API INI",
+  "description": "API Tenda da Glória",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

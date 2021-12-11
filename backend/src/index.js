@@ -23,20 +23,12 @@ app.get('/', (req, res) => {
 })
 
 // Rotas
-// const tarefaRouter = require('./routes/tarefaRouter')
-// app.use('/api/v1/tarefas', tarefaRouter)
-
-// const categoriaRouter = require('./routes/categoriaRouter')
-// app.use('/api/v1/categorias', categoriaRouter)
-
-// const artigosRouter = require('./routes/artigosRouter')
-// app.use('/api/v1/artigos', artigosRouter)
-
 // const admRouter = require('./routes/admRouter')
 // app.use('/api/v1/admRouter', admRouter)
 
 // const apiRouter = require('./routes/apiRouter')
 // app.use('/api/v1/auth', apiRouter)
+
 const estoqueRouter = require('./routes/estoqueRouter')
 app.use('/api/v1/estoque',estoqueRouter)
 
@@ -44,6 +36,8 @@ app.use('/api/v1/estoque',estoqueRouter)
 const pessoasRouter = require('./routes/pessoasRouter')
 app.use('/api/v1/pessoas', pessoasRouter)
 
+const doacoesRouter = require('./routes/doacoesRouter')
+app.use('/api/v1/doacoes', doacoesRouter)
 
 
 // Configurando o servidor
