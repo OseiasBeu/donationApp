@@ -37,9 +37,15 @@ app.get('/', (req, res) => {
 
 // const apiRouter = require('./routes/apiRouter')
 // app.use('/api/v1/auth', apiRouter)
+const estoqueRouter = require('./routes/estoqueRouter')
+app.use('/api/v1/estoque',estoqueRouter)
+
 
 const pessoasRouter = require('./routes/pessoasRouter')
-app.use('/api/v1/pessoas',pessoasRouter)
+app.use('/api/v1/pessoas', pessoasRouter)
+
+
+
 // Configurando o servidor
 const port = process.env.PORT
 app.listen(port, () => { console.log(`Servidor rodando na porta ${port}`) })
